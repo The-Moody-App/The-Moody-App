@@ -1,0 +1,74 @@
+{
+  "sad": [
+    {
+      "song": "t2ablni ",
+      "singer": "Adham Nabulsi",
+      "url": "https://mp3.panet.co.il/media/Adham-Nabulsi/Panet.co.il_Adham-Nabulsi-T2abbalni.mp3"
+    },
+    {
+      "song": "Jabo syrto",
+      "singer": "Asalah",
+      "url": "https://mp3.panet.co.il/media/asala/Panet.co.il_Assala_Gabo-Sertoh.mp3"
+    }
+  ],
+  "happy": [
+    {
+      "song": "Hdoudi el Sama",
+      "singer": "Karol smahah",
+      "url": "https://mp3.panet.co.il/media/karol_sama7a/Panet.co.il_Carol-Sama7a-7doudy-Elsama.mp3"
+    },
+    {
+      "song": "Shranen",
+      "singer": "Karol smahah",
+      "url": "https://mp3.panet.co.il/media/karol_sama7a/Panet.co.il_Carole-Samaha-Sahranine.mp3"
+    }
+  ],
+  "work-out": [
+    {
+      "song": "ab6al el mla3b",
+      "singer": "ez3aj",
+      "url": "https://mp3.panet.co.il/media/Ez3ag/Panet.co.il_Ez3ag-Ab6al-Elml3b.mp3"
+    },
+    {
+      "song": "Mondial",
+      "singer": "ez3aj",
+      "url": "https://mp3.panet.co.il/media/Ez3ag/Panet.co.il_Ez3ag-Mondial-Laf-Lof.mp3"
+    }
+  ],
+  "sarcastic": [
+    {
+      "song": "bukra m36el ",
+      "singer": "Autostrad",
+      "url": "https://mp3.panet.co.il/media/Otstrat/Panet.co.il_Otstrat-Ana-Bkra-M36el.mp3"
+    },
+    {
+      "song": "ya thareef eltool",
+      "singer": "Hassen Salman",
+      "url": "https://mp3.panet.co.il/media/wen_eldabeky/Panet.co.il_7seen-Elslman-Thareef-El6ool.mp3"
+    }
+  ],
+  "Romantic": [
+    {
+      "song": " halet hub ",
+      "singer": "wa2el kfoury",
+      "url": "https://mp3.panet.co.il/media/wa2el_kfory/Panet.co.il_Wael-Kfoury-7alet-7ob.mp3"
+    },
+    {
+      "song": "Khedni m3ak",
+      "singer": "Karol Smahah",
+      "url": "https://mp3.panet.co.il/media/karol_sama7a/Panet.co.il_Carole-Samaha-Khedni-Maak.mp3"
+    }
+  ],
+  "Tarab": [
+    {
+      "song": "asmar ya asmrani ",
+      "singer": "Abd elhalem",
+      "url": "https://mp3.panet.co.il/media/3abd_al7alem/Panet.co.il_3bd-al7alim-Asmar-Ya-Smarany.mp3"
+    },
+    {
+      "song": " aghdan alqak",
+      "singer": "Um Kalthoum",
+      "url": "https://mp3.panet.co.il/media/om-kalthum/Panet.co.il_Om-Kolthom-Akhdan-Alal-part2.mp3"
+    }
+  ]
+}
