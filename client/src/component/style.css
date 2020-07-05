@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-image: url("bg2.jpg");
+  background-repeat: no-repeat;
+}
+
+/* to style the mood buttons that will appear in the main page    */
+
+.mood {
+  background-color: rgb(151, 221, 218);
+  opacity: 0.85;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  left: 35%;
+  bottom: 30%;
+}
+
+/* to style the list of moods buttons  */
+ul {
+  list-style-type: none;
+}
+ul li {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
+/* to style the footer part  */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  background-color: rgb(199, 191, 191);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  opacity: 0.75;
+}
+footer a {
+  float: right;
+}
+
+/* to style the  header part */
+header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 10px 10px;
+  opacity: 0.5;
+}
+
+header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-bar {
+  float: right;
+}
+
+/* to style the a element in the header and the footer so far*/
+
+a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+a:hover {
+  background-color: blueviolet;
+}
+.mood:hover {
+  background-color: blueviolet;
+}
+
+#cm {
+  background-color: rgb(151, 221, 218);
+  opacity: 0.85;
+  border: none;
+  color: white;
+  padding: 24px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 100px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  top: 70%;
+  left: 35%;
+}
+
+#cm:hover {
+  background-color: rgb(8, 99, 94);
+}
+
+#welcoming {
+  position: relative;
+  top: 60%;
+  left: 48%;
+}
