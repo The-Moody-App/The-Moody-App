@@ -2,84 +2,80 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// const uri = "mongodb+srv://Sara-Agha-Alnimer:TMGUY54ZkKH7vne6@moody.96orc.mongodb.net/moody?retryWrites=true&w=majority"
-// mongoose.connect(uri /* || "mongodb://localhost/moody "*/,
-//   { useNewUrlParser: true,
-//   useUnifiedTopology: true }
-// );
-
-// const db = mongoose.connection;
+const  saltRounds =  10;
 
 const User = require('../models/user')
-// const validateInput = require("../../validation/register")
 
-router.post('/signup', (req,res) => {  
-  User.findOne({ email: req.body.email }).then(user => {
-    if (user) {
-      return res.status(400).json({ email: "Email already exists" });
-    } else {
-      
-      // // Hash password before saving in database
-      // bcrypt.genSalt(10, (err, salt) => {
-      //   bcrypt.hash(req.body.email, salt, (err, hash) => {
-      //     if (err) throw err;
+router.post('/signup',function (req, res)  {
+  var newUser = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password
+  });
+   User.findOne({ email: newUser.email })
+    .then( profile => {
+      if (!profile) {
+        bcrypt.hash(newUser.password, saltRounds, function (err, hash)  {
+          if (err) {
+            console.log("Error is", err.message);
+          } else {
+            newUser.password = hash;
+             newUser
+              .save()
+              .then(() => {
 
-          
-      //   });
-      // });
+                res.send('User authenticated');
 
-      //add new user to the db
-      const newUser = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password
-      });
-      newUser
-        .save()
-        .then(user => res.json(user))
-        .catch(err => console.log(err));
-    }
-  });     
-});
+              })
+              .catch(err => {
+                console.log("Error is ", err.message);
+              });
+          }
+        });
+      } else {
+        res.send("User already exists...");
+
+      }
+    })
+    .catch(err => {
+      console.log("Error is", err.message);
+    });
+})
 
 //login route
-router.post("/login",function (req, res) {
-  const email = req.body.email;
-  const password = req.body.password;
-  // Find user by email
-  User.findOne({ email, password }).then(user => {
-    // Check if user exists
-    if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
-    }
-    console.log(user)
-   
-    
-      console.log(user);
-      return res.json({exist : true})
-  
-    
+router.post("/login",function (req, res)  {
+  var newUser = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password
   });
-});
 
-//require songs model 
-// const sad = require('../models/songs');
-
-// router.get("/sad",function(req, res) {
-//   sad.find({},(err,songs) => { 
-//     if (err) {
-//       console.log(err)
-      
-//     }
-//     console.log(songs)
-//     return res.json(songs)
-//   });
-//   console.log("hello")
-//   // res.json("hello")
-// });
-
+   User.findOne({ email: newUser.email })
+    .then(profile => {
+      if (!profile) {
+        res.send("User not exist");
+      } else {
+        bcrypt.compare(
+          newUser.password,
+          profile.password,
+          function (err, result) {
+            if (err) {
+              console.log("Error is", err.message);
+            } else if (result == true) {
+              res.send("User login");
+            } else {
+              res.send("User Unauthorized Access");
+            }
+          }
+        );
+      }
+    })
+    .catch(err => {
+      console.log("Error is ", err.message);
+    });
+})
 
 
 module.exports = router;
