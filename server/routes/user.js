@@ -64,7 +64,18 @@ router.post("/login",function (req, res)  {
             if (err) {
               console.log("Error is", err.message);
             } else if (result == true) {
-              res.send("User login");
+              req.session.user = user;
+
+              res.cookie("user", "user", {
+                signed: true,
+                maxAge: 1000 * 60 * 60,
+              });
+              var userInfo = {
+                user: user,
+                result: result,
+              };
+              res.status(200).send(userInfo);
+              
             } else {
               res.send("User Unauthorized Access");
             }
@@ -77,5 +88,10 @@ router.post("/login",function (req, res)  {
     });
 })
 
+//logout route
+router.get("/logout", (req, res) => {
+  req.session.destroy();
+  return res.status(200).send("logout");
+});
 
 module.exports = router;
