@@ -14,8 +14,7 @@ router.get("/sad",function(req, res) {
     console.log(songs)
     return res.json(songs)
   });
-  console.log("hello")
-  // res.json("hello")
+
 });
 
 
