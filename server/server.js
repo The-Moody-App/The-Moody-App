@@ -3,11 +3,13 @@ var cors = require('cors')
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
 
+
 const app = express();
 
 
 //make connection between server side and client side
 app.use(cors());
+
 
 //routs path
 const users = require("./routes/user");

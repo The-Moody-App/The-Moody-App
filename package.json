@@ -29,6 +29,8 @@
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.0",
     "is-email": "^1.0.0",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
@@ -37,6 +39,7 @@
     "mongoose": "^5.9.20",
     "passport": "^0.4.1",
     "react-router-dom": "^5.2.0",
+    "request": "^2.88.2",
     "validator": "^13.1.1"
   }
 }

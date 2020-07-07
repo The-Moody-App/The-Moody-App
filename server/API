@@ -1,0 +1,15 @@
+Client ID 63a6de68f87c4c818162b0546bd5e2d5
+Client Secret c06470d78ce94451be6a7f47138ce56f
+playlist-read-private
+
+curl -H "Authorization: Basic NjNhNmRlNjhmODdjNGM4MTgxNjJiMDU0NmJkNWUyZDU6YzA2NDcwZDc4Y2U5NDQ1MWJlNmE3ZjQ3MTM4Y2U1NmY=" -d grant_type=authorization_code -d code=AQCT9N-s86aYTYQ1mC1KC7AVrBc_6GnDMHDK07ymAH5smriXefwcsPubw_ps4zkqfby5j10nENkI-sR3akrTOZtEtdzcIJTgRjawHP2Qg2BujFXSGVjrWoalHkKBHgOgBdYUxYLb-YvY1SXBHqZN_YfmZEitstdQhFza7Df4-cOve5Oi7Ei5SBlvUgiOkg -d redirect_uri=https%3A%2F%2Flearn-2.galvanize.com%2Fcohorts%2F1674 https://accounts.spotify.com/api/token
+
+https://accounts.spotify.com/authorize?client_id=63a6de68f87c4c818162b0546bd5e2d5&scopes=playlist-read-private&response_type=code&redirect_uri=https%3A%2F%2Flearn-2.galvanize.com%2Fcohorts%2F1674
+
+
+63a6de68f87c4c818162b0546bd5e2d5:c06470d78ce94451be6a7f47138ce56f
+
+https://learn-2.galvanize.com/cohorts/1674?code=AQCT9N-s86aYTYQ1mC1KC7AVrBc_6GnDMHDK07ymAH5smriXefwcsPubw_ps4zkqfby5j10nENkI-sR3akrTOZtEtdzcIJTgRjawHP2Qg2BujFXSGVjrWoalHkKBHgOgBdYUxYLb-YvY1SXBHqZN_YfmZEitstdQhFza7Df4-cOve5Oi7Ei5SBlvUgiOkg
+
+
+{"access_token":"BQAPjM2sGCF9vfZtS-Ly7F940q-vZl1rKOVlFMgRxE57bLHHtbhUfBCOTXVywULiqmeJhKqnskM_4frpMVH0bFAeRewL1i34vYBV27A6Gbcf6kPhHxRYt-_HyH1HA790ob8NP08WediDS3OgE18KeetoKFxlVgZkEg","token_type":"Bearer","expires_in":3600,"refresh_token":"AQDAmL8HvGxvyspaoszeJZ8yGHiGC4arQmjjjYC2FZ-PSTWQEcAv5Y9aMXX11rG2Q1pKF0vxkMTHE8KgKWeZux_uZp2QjzQCffcSBTAl3vOMGiPjPHwdh3eh8srzecKVByI","scope":""}
