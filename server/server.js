@@ -2,9 +2,19 @@ const express = require("express");
 var cors = require('cors')
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
+var session = require("express-session");
+var cookieParser = require("cookie-parser");
 
 const app = express();
+app.use(cookieParser("MoodyApp"));
 
+app.use(
+  session({
+    name: "session-id",
+    secret: "SuraSession",
+  
+  })
+);
 
 //make connection between server side and client side
 app.use(cors());
@@ -31,11 +41,9 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(require('./middleware/cookieParser'))
 //use routs for the site
 app.use("",users);
 app.use("",songs)
-
 
 var port = 5000;
 
