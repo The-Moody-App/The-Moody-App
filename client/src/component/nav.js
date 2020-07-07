@@ -10,13 +10,15 @@ class Nav extends Component {
           <h3>Moody</h3>
         </Link>
         <ul className="nav-bar">
-          <Link to="/login">
-            <li>logIn</li>
-          </Link>
-          <Link to="/signup">
-            <li>SignUp</li>
-          </Link>
-          
+        <li>
+          <Link to="/login">logIn</Link>
+          </li>
+          <li>
+          <Link to="/signup">SignUp</Link>
+          </li>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
         </ul>
       </nav>
     );

@@ -1,57 +1,64 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import axios from "axios"
+import { Card, Form, Input, Button, Error } from '../component/AuthForm';
+import { Link, Redirect } from 'react-router-dom';
+import { useAuth } from "../auth";
 
-class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: "",
-            password: "",
-        }
-        this.handleChange=this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    } 
 
-    handleChange = event => {
-        const {name, value} = event.target
-        this.setState({
-          [name]: value
-        })    
+function Login(props) {
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const { setAuthTokens } = useAuth();
+
+  function postLogin() {
+    axios.post('http://localhost:5000/login', {
+      userName,
+      password
+    }).then(result => {
+      if (result.status === 200) {
+        setAuthTokens(result.data);
+        setLoggedIn(true);
+      } else {
+        setIsError(true);
       }
-
-    handleSubmit =  e => {
-        e.preventDefault();
-    
-        const user = {
-          email: this.state.email,
-          password: this.state.password,   
-        };
-
-        console.log(user)
-        axios.post('http://localhost:5000/login',user)
-        .then(function (response) {
-          console.log(response);
-          // window.location = "/home"
-        })
-        
-    
-    }
-
-  render() {
-    return (
-      <div>
-          <form onSubmit={this.handleSubmit}>
-            <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required  />
-            <br />
-
-            <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/>
-            <br />
-
-            <input type="submit" value="Log In" />
-          </form>
-      </div>
-    );
+    }).catch(e => {
+      setIsError(true);
+    });
   }
+
+    if (isLoggedIn) {
+    return <Redirect to="/" />;
+  }
+
+
+  return (
+    <Card>
+      <Form>
+        <Input
+          type="email"
+          value={userName}
+          onChange={e => {
+            setUserName(e.target.value);
+          }} 
+          placeholder="email"
+        />
+        <Input
+          type="password"
+          value={password}
+          onChange={e => {
+            setPassword(e.target.value);
+          }} 
+          placeholder="password"
+        />
+        <Button onClick={postLogin}>Sign In</Button>
+      </Form>
+      <Link to="/signup">Don't have an account?</Link>
+        { isError &&<Error>The username or password provided were incorrect!</Error> }
+    </Card>
+  );
 }
 
 export default Login;

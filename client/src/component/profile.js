@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import { Button } from "./AuthForm";
+import { useAuth } from "../auth";
 
-class Profile extends Component {
-  render() {
+function Profile(props) {
+  const { setAuthTokens } = useAuth();
+
+  function logOut() {
+    setAuthTokens();
+  }
     return (
       <div>
         <div>
@@ -25,9 +31,10 @@ class Profile extends Component {
           <li>song 3</li>
           <li>song 4</li>
         </ul>
+        <Button onClick={logOut}>Log out</Button>
       </div>
     );
   }
-}
+
 
 export default Profile;
