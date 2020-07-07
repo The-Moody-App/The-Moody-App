@@ -20,7 +20,7 @@ function Alert(){
       authTokens ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/login", state: { referer: props.location } }} />
+        <Component {...props} />
         )
       }
     />

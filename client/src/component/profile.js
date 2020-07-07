@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "./AuthForm";
+import { Button,Form,Card,Title } from "./AuthForm";
 import { useAuth } from "../auth";
 
 function Profile(props) {
@@ -9,8 +9,8 @@ function Profile(props) {
     setAuthTokens();
   }
     return (
-      <div>
-        <div>
+      <Card>
+        <Form>
           <span>full name : </span> <br></br>
           <span>user name : </span>
           <br></br>
@@ -20,10 +20,10 @@ function Profile(props) {
           <br></br>
           <br></br>
           <br></br>
-          <button>edit my profile</button>
+          <Button>edit my profile</Button>
           <br></br>
           <br></br>
-        </div>
+        </Form>
         <h3> My Fav</h3>
         <ul className="fav">
           <li> song 1 </li>
@@ -32,7 +32,7 @@ function Profile(props) {
           <li>song 4</li>
         </ul>
         <Button onClick={logOut}>Log out</Button>
-      </div>
+     </Card>
     );
   }
 

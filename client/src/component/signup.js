@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import axios from 'axios'
+import { Card, Form, Input, Button, Error } from '../component/AuthForm';
 
 
 
@@ -54,29 +55,28 @@ class Signup extends Component {
 
     render() {
     return (
-      <div>
+      <Card>
+        <Form>
         <h1>Sign Up</h1>
         
-        <div>
+        
           <form onSubmit={this.handleSubmit}>
-            <input type="text"  name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required /> <br />
-            <br />
-            <input type="text" name="lastName" placeholder="last Name" value={this.state.lastName} onChange={this.handleChange} required /> <br />
-            <br />
+            <Form>
+            <Input type="text"  name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required /> 
+            <Input type="text" name="lastName" placeholder="last Name" value={this.state.lastName} onChange={this.handleChange} required /> 
 
-            <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
-            <br />
+            <Input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
 
-            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
-            <br />
+            <Input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
    
-            <input type="password"  name="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleChange} required />
-            <br />
+            <Input type="password"  name="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleChange} required />
          
-         <input type="submit" value="Sign Up" />         
+         <Button type="submit" value="Sign Up">Sign up</Button>        
+            </Form>
              </form>
-        </div>
-      </div>
+        
+        </Form>
+      </Card>
     );
   }
 }

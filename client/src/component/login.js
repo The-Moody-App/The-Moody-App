@@ -53,7 +53,7 @@ function Login(props) {
           }} 
           placeholder="password"
         />
-        <Button onClick={postLogin}>Sign In</Button>
+        <Button onClick={postLogin}>Login</Button>
       </Form>
       <Link to="/signup">Don't have an account?</Link>
         { isError &&<Error>The username or password provided were incorrect!</Error> }

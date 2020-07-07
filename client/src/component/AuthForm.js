@@ -9,7 +9,11 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
 const Form = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,18 +34,13 @@ const Button = styled.button`
   padding: 1rem;
   color: white;
   font-weight: 700;
-  width: 50%;
+  width: 100%;
   margin-bottom: 1rem;
   font-size: 0.8rem;
-`;
-
-const Logo = styled.img`
-  width: 50%;
-  margin-bottom: 1rem;
 `;
 
 const Error = styled.div`
   background-color: red;
 `;
 
-export { Form, Input, Button, Logo, Card, Error };
+export { Form, Input, Button, Card, Title, Error };
