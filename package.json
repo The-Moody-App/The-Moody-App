@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/TSEM-group4/TSEM-group4-#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "assert": "^2.0.0",
     "axios": "^0.18.1",
     "bcrypt": "^5.0.0",

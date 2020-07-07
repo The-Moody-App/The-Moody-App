@@ -12,7 +12,7 @@ const Card = styled.div`
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
+  color: blue;
 `;
 const Form = styled.div`
   display: flex;
