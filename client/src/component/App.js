@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./style.css";
 import Nav from "./nav";
 import login from "./login";
+import logout from "./logOut";
+
+
 import Signup from "./signup";
 import Body from "./home";
 import About from "./aboutus";
@@ -20,6 +23,8 @@ class App extends Component {
           <Nav />
           <Route path="/" exact component={Body} />
           <Route path="/login" component={login} />
+          <Route path="/logOut" component={logout} />
+
           <Route path="/signup" component={Signup} />
           <Route path="/profile" component={Profile} />
           <Footer />
