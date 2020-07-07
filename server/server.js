@@ -31,7 +31,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-
+app.use(require('./middleware/cookieParser'))
 //use routs for the site
 app.use("",users);
 app.use("",songs)
