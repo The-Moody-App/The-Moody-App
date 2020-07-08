@@ -1,19 +1,14 @@
 Client ID 54b4849d620341d68237a65a51e268d0
-Client Secret c06470d78ce94451be6a7f47138ce56f
-playlist-read-private
-
-curl -H "Authorization: Basic NjNhNmRlNjhmODdjNGM4MTgxNjJiMDU0NmJkNWUyZDU6YzA2NDcwZDc4Y2U5NDQ1MWJlNmE3ZjQ3MTM4Y2U1NmY=" -d grant_type=authorization_code -d code=AQATh9SbRyland-9yyNs7EetQKhBOD7zjHu5-SCUH_v7K6gURaxpS31vkEEnUtSR7sRLaeEVG5-uQ-xG-oapK377VvN5ug9My64MGkzc3Izfcq3_fyCDu2C-Ymu0jt0-wzNvvZ6jbH7-2m0MaaOvwd6tFlL4Bjr35yilzrM7CmnVfw -d redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback https://accounts.spotify.com/api/token
-
-https://accounts.spotify.com/authorize?client_id=63a6de68f87c4c818162b0546bd5e2d5&scopes=playlist-read-private&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback
+Client Secret bd6df841d7634283884fbbd7b216c8c8
 
 
-63a6de68f87c4c818162b0546bd5e2d5:c06470d78ce94451be6a7f47138ce56f
+https://accounts.spotify.com/authorize?client_id=54b4849d620341d68237a65a51e268d0&scopes=playlist-read-private&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fcallback
+
+
+54b4849d620341d68237a65a51e268d0:bd6df841d7634283884fbbd7b216c8c8
 
 
 
 
 
-
-
-
-http://localhost:3000/callback?code=AQATh9SbRyland-9yyNs7EetQKhBOD7zjHu5-SCUH_v7K6gURaxpS31vkEEnUtSR7sRLaeEVG5-uQ-xG-oapK377VvN5ug9My64MGkzc3Izfcq3_fyCDu2C-Ymu0jt0-wzNvvZ6jbH7-2m0MaaOvwd6tFlL4Bjr35yilzrM7CmnVfw
+curl -H "Authorization: NTRiNDg0OWQ2MjAzNDFkNjgyMzdhNjVhNTFlMjY4ZDA6YmQ2ZGY4NDFkNzYzNDI4Mzg4NGZiYmQ3YjIxNmM4Yzg=" -d grant_type=authorization_code -d code= -d redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fcallback https://accounts.spotify.com/api/token

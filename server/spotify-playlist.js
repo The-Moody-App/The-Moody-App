@@ -10,8 +10,8 @@ request({url: playlists_url, headers:{Authorization:token}}, function(err, res) 
     if (res){
         
         var  playlists = JSON.parse(res.body);
-        // console.log(JSON.stringify(playlists.items, null, " "));
-        var playlist_url =  playlists.items[0].href
+        console.log(JSON.stringify(playlists.items, null, " "));
+        var playlist_url = ""; //playlists.items[0].href
         request({url: playlist_url, headers:{Authorization:token}}, function(err, res) {
            
             if (res){
