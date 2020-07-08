@@ -4,9 +4,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
 var session = require("express-session");
 var cookieParser = require("cookie-parser");
-
+const path = require('path');
 const app = express();
+app.use(express.static(__dirname + '/public'));
+const items =require('../data')
 app.use(cookieParser("MoodyApp"));
+// console.log(items)
+ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
   session({
@@ -16,6 +20,15 @@ app.use(
   })
 );
 
+
+
+// file upload
+
+
+
+// Upload Endpoint
+
+
 //make connection between server side and client side
 app.use(cors());
 
@@ -24,14 +37,14 @@ const users = require("./routes/user");
 const songs = require("./routes/main");
 const { Mongoose } = require("mongoose");
 
-// Connect to MongoDB
-const uri = "mongodb+srv://Sara-Agha-Alnimer:TMGUY54ZkKH7vne6@moody.96orc.mongodb.net/moody?retryWrites=true&w=majority"
-mongoose.connect(uri /* || "mongodb://localhost/moody "*/,
-    { useNewUrlParser: true,
-    useUnifiedTopology: true }
-  )
-  mongoose.connection.on('connected', () => 
-  console.log("MongoDB successfully connected"))
+// // Connect to MongoDB
+// const uri = "mongodb+srv://Sara-Agha-Alnimer:TMGUY54ZkKH7vne6@moody.96orc.mongodb.net/moody?retryWrites=true&w=majority"
+// mongoose.connect(uri /* || "mongodb://localhost/moody "*/,
+//     { useNewUrlParser: true,
+//     useUnifiedTopology: true }
+//   )
+//   mongoose.connection.on('connected', () => 
+//   console.log("MongoDB successfully connected"))
 
 
 // middleware
@@ -42,8 +55,13 @@ app.use(
 );
 app.use(bodyParser.json());
 //use routs for the site
-app.use("",users);
-app.use("",songs)
+// app.use("",users);
+// app.use("",songs)
+
+
+
+
+
 
 var port = 5000;
 
