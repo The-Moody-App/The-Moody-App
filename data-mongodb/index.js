@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/MoodyDB');
+var db = mongoose.connection;
 
 var Schema= mongoose.Schema;
 // connect data base and check the connection

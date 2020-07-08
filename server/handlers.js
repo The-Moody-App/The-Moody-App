@@ -1,35 +1,12 @@
 const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
+var nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
 const  saltRounds =  10;
-// const fileUpload = require('express-fileupload');
-// const multer = require('multer');
-// const ejs = require('ejs');
-// const path = require('path');
-// const User = require('../models/user')
-import  {User} from '.../data'
-
-// const User2 = require('../models/user2')
-// router.post('/addData',function (req, res)  {
-//   var newUser = new User2({
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     email: req.body.email,
-//     password: req.body.password,
-//     uploads:req.body.uploads,
-//     favorite:req.body.favorite,
-//     image:req.body.image,
-//   })
-//  newUser.save()
-//     .then(()=> res.json("ADV Added"))
-//       .catch(err=> res.status(400).json('Error:'+err))
-
-// })
-
-
-
-router.post('/signup',function (req, res)  {
+var items = require('../data-mongodb')
+var songs=items.Song
+var User=items.User
+module.exports = {
+signup:function (req, res)  {
   var newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -64,10 +41,8 @@ router.post('/signup',function (req, res)  {
     .catch(err => {
       console.log("Error is", err.message);
     });
-})
-
-//login route
-router.post("/login",function (req, res)  {
+},
+login:function (req, res)  {
   var newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -109,11 +84,89 @@ router.post("/login",function (req, res)  {
     .catch(err => {
       console.log("Error is ", err.message);
     });
-})
-
-//logout route
-router.get("/logout", (req, res) => {
+},
+logout: function(req, res) {
   req.session.destroy();
   return res.status(200).send("logout");
-});
-module.exports = router;
+},
+sad:function(req, res) {
+  songs.find({},'sad',function(err,songs)  { 
+    if (err) {
+      console.log(err)
+    }
+    console.log(songs)
+    return res.end(songs)
+  });
+},
+ happy:function(req, res) {
+  songs.find({},'happy',function(err,songs) { 
+    if (err) {
+      console.log(err)
+    }
+    console.log(songs)
+    return res.end(songs)
+  });
+},
+tarab:function(req, res) {
+  songs.find({},'tarab',function(err,songs) { 
+    if (err) {
+      console.log(err)
+    }
+    console.log(songs)
+    return res.end(songs)
+  });
+},
+romantic:function(req, res) {
+  songs.find({},'romantic', function(err,songs){ 
+    if (err) {
+      console.log(err)
+    }
+    console.log(songs)
+    return res.end(songs)
+  });
+},
+wedding:function(req, res) {
+  songs.find({},'wedding',function (err,songs) { 
+    if (err) {
+      console.log(err)
+    }
+    console.log(songs)
+    return res.end(songs)
+  });
+},
+random:function(req, res) {
+  songs.find({},'random',function(err,songs){ 
+    if (err) {
+      console.log(err)
+    }
+    console.log(songs)
+    return res.end(songs)
+  });
+},
+sendEmail:function(req, res)  {
+  var email=req.body.email
+  var text=req.body.text
+  // Step 1
+  let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+          user: "bookteacheronline@gmail.com",
+          pass: "BookTeacherOnline123456789"
+      }
+  });
+  // Step 2
+  let mailOptions = {
+      from: email ,
+      to: 'moodyweb19@gmail.com',
+      subject: 'There is user want to contact you  !!',
+      text: text
+  };
+  // Step 3
+  transporter.sendMail(mailOptions, (err, data) => {
+      if (err) {
+          res.status(400).end('Error:'+err)
+      }
+      res.end("Email send");
+  });
+  }
+}
