@@ -6,8 +6,7 @@
 
 
   
-  - __Scrum Master__: Sara Al Nemer
-  - __Development Team Members__: Aws Alali, Sara Al Nemer ,Afnan shwawreh , sura aloqaily
+  - __Development Team Members__: Aws Alali, Sara Al Nemer ,Afnan shwawreh , sura aloqaily, Sara Al Nemer
 
 ## Table of Contents
 
