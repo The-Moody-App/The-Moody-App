@@ -7,7 +7,26 @@ const  saltRounds =  10;
 // const multer = require('multer');
 // const ejs = require('ejs');
 // const path = require('path');
-const User = require('../models/user')
+// const User = require('../models/user')
+import  {User} from '.../data'
+
+// const User2 = require('../models/user2')
+// router.post('/addData',function (req, res)  {
+//   var newUser = new User2({
+//     firstName: req.body.firstName,
+//     lastName: req.body.lastName,
+//     email: req.body.email,
+//     password: req.body.password,
+//     uploads:req.body.uploads,
+//     favorite:req.body.favorite,
+//     image:req.body.image,
+//   })
+//  newUser.save()
+//     .then(()=> res.json("ADV Added"))
+//       .catch(err=> res.status(400).json('Error:'+err))
+
+// })
+
 
 
 router.post('/signup',function (req, res)  {

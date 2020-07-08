@@ -3,7 +3,26 @@ const router = express.Router();
 const mongoose = require('mongoose');
 var nodemailer = require("nodemailer");
 // require songs model 
-const songs = require('../models/songs');
+var songs = require(' ..../data')
+ //upload image handling 
+router.post('/upload', (req, res) => {
+  if (req.files === null) {
+    return res.status(400).json({ msg: 'No file uploaded' });
+  }
+
+  const file = req.files.file;
+
+  file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send(err);
+    }
+
+    res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
+  });
+});
+
+//handling moods 
 router.get("/sad",function(req, res) {
   songs.find({},'sad',(err,songs) => { 
     if (err) {
@@ -58,6 +77,7 @@ router.get("/random",function(req, res) {
     return res.end(songs)
   });
 });
+//handling send email 
 router.post("/sendEmail",(req, res) => {
   var email=req.body.email
   var text=req.body.text
