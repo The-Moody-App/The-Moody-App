@@ -3,8 +3,12 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const  saltRounds =  10;
-
+// const fileUpload = require('express-fileupload');
+// const multer = require('multer');
+// const ejs = require('ejs');
+// const path = require('path');
 const User = require('../models/user')
+
 
 router.post('/signup',function (req, res)  {
   var newUser = new User({
@@ -64,17 +68,17 @@ router.post("/login",function (req, res)  {
             if (err) {
               console.log("Error is", err.message);
             } else if (result == true) {
-              req.session.user = user;
+              req.session.user = profile;
 
               res.cookie("user", "user", {
                 signed: true,
                 maxAge: 1000 * 60 * 60,
               });
               var userInfo = {
-                user: user,
+                user: profile,
                 result: result,
               };
-              res.status(200).send(userInfo);
+              res.status(200).send("User log in");
               
             } else {
               res.send("User Unauthorized Access");
@@ -93,5 +97,4 @@ router.get("/logout", (req, res) => {
   req.session.destroy();
   return res.status(200).send("logout");
 });
-
 module.exports = router;

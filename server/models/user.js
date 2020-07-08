@@ -18,7 +18,14 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  uploads:{
+    type: [String] 
+  },
+  favorite:{
+    type: [String] 
+  },
+  image:String
 });
 
 

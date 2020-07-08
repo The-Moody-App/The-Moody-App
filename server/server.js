@@ -4,9 +4,18 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
 var session = require("express-session");
 var cookieParser = require("cookie-parser");
-
+const fileUpload = require('express-fileupload');
+const path = require('path');
 const app = express();
+const multer = require('multer');
+const ejs = require('ejs');
+app.use(express.static(__dirname + '/public'));
+app.use(express.static('uploads'));
+
 app.use(cookieParser("MoodyApp"));
+app.use(fileUpload());
+
+ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
   session({
@@ -44,6 +53,11 @@ app.use(bodyParser.json());
 //use routs for the site
 app.use("",users);
 app.use("",songs)
+
+
+
+
+
 
 var port = 5000;
 
