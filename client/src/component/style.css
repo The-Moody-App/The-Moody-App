@@ -1,10 +1,13 @@
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background-image: url("bg2.jpg");
+  background-image: url("bg2.jpg"), url("logo.jpg");
   background-repeat: no-repeat;
 }
+#my_logo{
+  background-image: url("logo.jpg")
 
+}
 /* to style the mood buttons that will appear in the main page    */
 
 .mood {
@@ -67,6 +70,7 @@ header a.logo {
 
 .nav-bar {
   float: right;
+  background-image: url("logo.jpg")
 }
 
 /* to style the a element in the header and the footer so far*/

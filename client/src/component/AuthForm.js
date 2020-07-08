@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Card = styled.div`
   box-sizing: border-box;
   max-width: 410px;
-  margin: 0 auto;
+  margin: 0 auto; 
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background: linear-gradient(to bottom, #6371c7, #5563c1);
+  background: linear-gradient(to bottom, red, #5563c1);
   border-color: #3f4eae;
   border-radius: 3px;
   padding: 1rem;
