@@ -38,7 +38,7 @@ class ContactUS extends Component {
           axios.post('http://localhost:5000/sendEmail',Send)
           .then(function (response) {
             console.log(response);
-       if(response.data === "Email Send"){
+       if(response.data === "Email send"){
 
               window.location = "/profile"
             }else{
@@ -48,7 +48,9 @@ class ContactUS extends Component {
       
   render() {
     return (
-<div>
+
+<form onSubmit={this.handleSubmit}>
+
         <div className="FormField" >
         <label className="Form1" htmlFor="name">E-Mail Address :</label>
         <input type="email" id="email" className="Input1" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.updateemail} />
@@ -57,8 +59,9 @@ class ContactUS extends Component {
         <label className="Form1" htmlFor="name">Send Me </label>
         <input type="text" id="text" className="Input1" placeholder="Enter Text" name="text" value={this.state.text} onChange={this.updatetext} />
        </div>
+       <input type="submit" value="Send" />
+       </form>
 
-</div>
 
     
     );
