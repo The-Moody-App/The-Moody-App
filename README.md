@@ -5,8 +5,9 @@
 ## Team
 
 
-  
-  - __Development Team Members__: Aws Alali, Sara Al Nemer ,Afnan shwawreh , sura aloqaily, Sara Al Nemer
+
+  - __Development Team Members__: Aws Alali ,Afnan shwawreh , sura aloqaily, Sara Al Nemer
+
 
 ## Table of Contents
 
