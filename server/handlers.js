@@ -170,6 +170,11 @@ sendEmail:function(req, res)  {
   });
   },
   image:function(req,res){
-    console.log(req.body)
-  }
+    console.log(Object.keys(req.body)[0])
+   User.image=Object.keys(req.body)[0]
+    console.log(User.image)
+  },
+  audio:function(req,res){
+    console.log(Object.keys(req.body)[0])
+  },
 }

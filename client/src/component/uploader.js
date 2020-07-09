@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { storage } from "./firebaseConfig";
 import logo from "../logo.svg";
+import axios from 'axios'
 
 export default function Uploader() {
   const [image, setImage] = useState(null);
@@ -52,7 +53,15 @@ export default function Uploader() {
       setError("Error please choose an image to upload");
     }
   };
-
+useEffect(( ) =>{
+  axios.post('http://localhost:5000/image',url)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(err =>{
+          console.log(err)
+        })
+})
   return (
     <div>
       <div>
@@ -64,7 +73,7 @@ export default function Uploader() {
         <p style={{ color: "red" }}>{error}</p>
       </div>
       {url ? (
-        <img style={{ height: "25px" ,width:"25px"}}  src={url} alt="logo" />
+        <img style={{ height: "25%" ,width:"25%"}}  src={url} alt="logo" />
       ) : (
         <img src={logo} className="App-logo" alt="logo" />
       )}
