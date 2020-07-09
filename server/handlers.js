@@ -168,5 +168,8 @@ sendEmail:function(req, res)  {
       }
       res.end("Email send");
   });
+  },
+  image:function(req,res){
+    console.log(req.body)
   }
 }

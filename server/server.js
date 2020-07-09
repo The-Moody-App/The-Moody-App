@@ -49,7 +49,7 @@ app.get("/romantic",handlers.romantic);
 app.get("/wedding",handlers.wedding);
 app.get("/random",handlers.random);
 app.post("/sendEmail",handlers.sendEmail)
-
+app.post("/image",handlers.image)
 var port = 5000;
 
 app.listen(port, function () {
