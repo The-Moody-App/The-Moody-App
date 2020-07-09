@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AudioUploader  from './audioUploader';
+import Uploader  from './uploader';
 class Body extends Component {
   constructor() {
     super();
@@ -18,7 +18,7 @@ class Body extends Component {
 
   render() {
     return (
-      <AudioUploader />
+      <Uploader />
     //   <React.Fragment>
     //     {/* this the header containing the logo and nav bar  */}
     //     <p id="welcoming">How do you feel ?</p>

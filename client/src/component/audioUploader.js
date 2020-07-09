@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { storage } from "./firebaseConfig";
 import logo from "../logo.svg";
+import axios from 'axios'
 export default function AudioUploader() {
   const [audio, setAudio] = useState(null);
   const [url, setUrl] = useState("");
@@ -50,8 +51,18 @@ export default function AudioUploader() {
     } else {
       setError("Error please choose an audio to upload");
     }
-  };
-
+  }
+  
+  useEffect(( ) =>{
+    axios.post('http://localhost:5000/audio',url)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(err =>{
+            console.log(err)
+          })
+  })
+  
   return (
     <div>
       <div>
