@@ -9,14 +9,7 @@ class Nav extends Component {
         <Link to="/">
           <h3>Moody</h3>
         </Link>
-        <ul className="nav-bar">
-          <Link to="/login">
-            <li>logIn</li>
-          </Link>
-          <Link to="/signup">
-            <li>SignUp</li>
-          </Link>
-          </ul>
+        
       </nav>
     );
   }

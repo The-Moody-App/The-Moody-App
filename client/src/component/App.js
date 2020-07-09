@@ -12,12 +12,14 @@ import AboutUs from "./aboutus.js"
 import Signup from "./signup.js";
 import Login from "./login.js";
 import Logout from "./logOut.js";
-
+import AudioUploader from "./audioUploader.js"
 import Happy from "./happy.js";
 import Sad from "./sad.js";
 import Romantic from "./romantic.js";
 import Tarab from "./tarab.js";
 import Rendoms from "./rendoms.js";
+import NavBarHome  from "./navbarhome.js";
+
 class App extends Component {
   render() {
     return (
@@ -30,6 +32,8 @@ class App extends Component {
           <Route path="/signup" component={Signup} />
           <Route path="/profile" component={Profile} />
           <Footer />
+          <Route path="/NavBarHome" component={NavBarHome } /> 
+          
            <Route path="/contactus" component={ContactUS} /> 
           <Route path="/aboutus" component={AboutUs} />
           <Route path='/happy' component={Happy}/>
@@ -37,6 +41,8 @@ class App extends Component {
           {/* <Route path='/myFavorite' component={Favorite}/> */}
           <Route path='/romantic' component={Romantic}/>
           <Route path='/rendoms' component={Rendoms}/>
+          <Route path='/rendoms' component={Rendoms}/>
+
 
          
 

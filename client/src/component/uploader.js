@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from "react";
 import { storage } from "./firebaseConfig";
-import logo from "../logo.svg";
+import logo from "../download.png";
 import axios from 'axios'
 
 export default function Uploader() {
