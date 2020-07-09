@@ -1,42 +1,43 @@
 import React, { Component } from "react";
-import axios from 'axios'
-
-
+// import axios from "axios";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+    Redirect,
+    useParams
+  } from "react-router-dom";
 class Mood extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      songs:[]
-    }   
-  } 
+    render() {
+      return (
+        <div>
+          <Link to="/sad">
 
-  componentDidMount () {
-    // axios.get('http://localhost:5000/sad')
-    //     .then(function (response) {
-    //       // the response is an array of songs
-    //       this.setState({
-    //         songs:response
-    //       })  
-    //     })
+            <button className="mood">sad</button>
+          </Link>
+  
+          <Link to="/wedding">
+     
+            <button className="mood">wedding</button>
+          </Link>
+  
+          <Link to="/tarab">
+           
+            <button className="mood">tarab</button>
+          </Link>
+  
+          <Link to="/Romantic">
+      
+            <button className="mood">Romantic</button>
+          </Link>
+          <Link to="/happy">
+         
+            <button>Happy</button>
+          </Link>
+        </div>
+      );
+    }
   }
-
-  render() {
-    return (
-      <div>
-        <label>
-          <pre>Song name singer</pre>
-        </label>
-
-        <audio
-          controls
-          src="https://mp3.panet.co.il/media/om-kalthum/Panet.co.il_Om-Kolthom-Akhdan-Alal-part2.mp3"
-        >
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio>
-      </div>
-    );
-  }
-}
-
-export default Mood;
+  export default Mood;

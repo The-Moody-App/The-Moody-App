@@ -1,25 +1,68 @@
-// import React, { Component } from "react";
+import React, { Component } from "react";
+import axios from "axios"
 
-// class Contact extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <form>
-//           <input type="text" placeholder="Full Name" required /> <br />
-//           <br />
-//           <input type="email" label="Email" placeholder="Email" required />
-//           <br />
-//           <br />
-//           <textarea></textarea>
-//           <br />
-//           <br />
-//           <input type="submit" onClick="clickHandlers">
-//             Sign Up
-//           </input>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
+class ContactUS extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: "",
+            text: "",
+         
+        }
+        this.updateemail= this.updateemail.bind(this);
+        this.updatetext= this.updatetext.bind(this);
 
-// export default Contact;
+        this.handleSubmit = this.handleSubmit.bind(this);
+    } 
+    updateemail(evt) {
+        this.setState({
+          email : evt.target.value
+        });
+      }
+      updatetext(evt) {
+        this.setState({
+         text : evt.target.value
+        });
+      }
+
+
+    
+      handleSubmit =  e => {
+          e.preventDefault();
+      
+          const Send = {
+            email: this.state.email,
+            text: this.state.text,
+          };
+          console.log(Send)
+          axios.post('http://localhost:5000/sendEmail',Send)
+          .then(function (response) {
+            console.log(response);
+       if(response.data === "Email Send"){
+
+              window.location = "/profile"
+            }else{
+              alert(' TRY AGAIN!!!')}
+          })
+           }
+      
+  render() {
+    return (
+<div>
+        <div className="FormField" >
+        <label className="Form1" htmlFor="name">E-Mail Address :</label>
+        <input type="email" id="email" className="Input1" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.updateemail} />
+      </div>
+      <div className="FormField" >
+        <label className="Form1" htmlFor="name">Send Me </label>
+        <input type="text" id="text" className="Input1" placeholder="Enter Text" name="text" value={this.state.text} onChange={this.updatetext} />
+       </div>
+
+</div>
+
+    
+    );
+  }
+}
+
+export default ContactUS;

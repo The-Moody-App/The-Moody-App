@@ -1,6 +1,15 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import axios from "axios"
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  Redirect,
+  useParams
+} from "react-router-dom";
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -8,15 +17,19 @@ class Login extends Component {
             email: "",
             password: "",
         }
-        this.handleChange=this.handleChange.bind(this);
+        this.updateemail= this.updateemail.bind(this);
+        this.updatePassword= this.updatePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     } 
-
-    handleChange = event => {
-        const {name, value} = event.target
-        this.setState({
-          [name]: value
-        })    
+    updateemail(evt) {
+      this.setState({
+        email : evt.target.value
+      });
+    }
+    updatePassword(evt) {
+      this.setState({
+          password : evt.target.value
+        });
       }
 
     handleSubmit =  e => {
@@ -31,20 +44,22 @@ class Login extends Component {
         axios.post('http://localhost:5000/login',user)
         .then(function (response) {
           console.log(response);
-          // window.location = "/home"
+     if(response.data === "User log in"){
+            window.location = "/profile"
+          }else{
+            alert(' TRY AGAIN!!!')}
         })
-        
-    
-    }
+         }
 
   render() {
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
-            <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required  />
+          <label >E-Mail Address :</label>
+            <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.updateemail} required  />
             <br />
-
-            <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/>
+            <label>Password: </label>
+            <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.updatePassword} required/>
             <br />
 
             <input type="submit" value="Log In" />
