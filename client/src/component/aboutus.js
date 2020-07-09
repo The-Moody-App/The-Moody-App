@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class About extends Component {
+class AboutUs extends Component {
   render() {
-    return <h1>Hello</h1>;
+    return <h1>Hello To MOODY Website</h1>;
   }
 }
 
-export default About;
+export default AboutUs;

@@ -14,46 +14,43 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 // create autho schema contain informations of users
-const songSchema = new Schema({
-    sad: [
-      {
-      song:String,
+const sadSchema = new Schema({
+         song:String,
       singer:String,
       url:String
-     }],
-     happy: [
-       {
-       song:String,
-       singer:String,
-       url:String
-      }],
-      romantic: [
-       {
-       song:String,
-       singer:String,
-       url:String
-     }],
-     tarab: [
-       {
-       song:String,
-       singer:String,
-       url:String
-     }],
-     wedding: [
-       {
-       song:String,
-       singer:String,
-       url:String
-     }],
-     random: [
-       {
-       song:String,
-       singer:String,
-       url:String
-     }]
-   });
+})
+const happySchema = new Schema({
+  song:String,
+singer:String,
+url:String
+})
+const romanticSchema = new Schema({
+  song:String,
+singer:String,
+url:String
+})
+    
+     const tarabSchema = new Schema({
+  song:String,
+singer:String,
+url:String
+})
+const weddingSchema = new Schema({
+  song:String,
+singer:String,
+url:String
+})
+const randomSchema = new Schema({
+  song:String,
+singer:String,
+url:String
+})
+     
 
-   const UserSchema = new Schema({
+
+
+
+   const UserSchema2 = new Schema({
     firstName: {
       type: String,
       required: true
@@ -76,15 +73,27 @@ const songSchema = new Schema({
     favorite:{
       type: [String] 
     },
-    image:String
+    image:{
+      type: [String]
+    }
   });
   
-  const Song = mongoose.model('Song', songSchema);
-  const User = mongoose.model('User', UserSchema);
+  const Sad = mongoose.model('Sad', sadSchema);
+  const Happy = mongoose.model('Happy', happySchema);
+  const Wedding = mongoose.model('Wedding', weddingSchema);
+  const Tarab = mongoose.model('Tarab', tarabSchema);
+  const Romantic = mongoose.model('Romantic', romanticSchema);
+  const Random = mongoose.model('Random', randomSchema);
+  const User2 = mongoose.model('User2', UserSchema2);
 
 
 
-  module.exports.Song  = Song;
-  module.exports.User  = User;
+  module.exports.Sad  = Sad;
+  module.exports.Happy = Happy;
+  module.exports.Wedding  = Wedding;
+  module.exports.Tarab  = Tarab;
+  module.exports.Romantic  = Romantic;
+  module.exports.Random  = Random ;
+  module.exports.User  = User2;
 
 

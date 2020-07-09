@@ -2,8 +2,13 @@ const express = require('express');
 var nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
 const  saltRounds =  10;
-var items = require('../data-mongodb')
-var songs=items.Song
+var items = require('../data-mongodb');
+var Sad=items.Sad
+var Happy=items.Happy
+var Wedding=items.Wedding
+var Random=items.Random
+var Tarab=items.Tarab
+var Romantic=items.Romantic
 var User=items.User
 module.exports = {
 signup:function (req, res)  {
@@ -90,57 +95,57 @@ logout: function(req, res) {
   return res.status(200).send("logout");
 },
 sad:function(req, res) {
-  songs.find({},'sad',function(err,songs)  { 
+  Sad.find({},function(err,songs)  { 
     if (err) {
       console.log(err)
     }
     console.log(songs)
-    return res.end(songs)
+    return res.send(songs)
   });
 },
  happy:function(req, res) {
-  songs.find({},'happy',function(err,songs) { 
+  Happy.find({},function(err,songs) { 
     if (err) {
       console.log(err)
     }
     console.log(songs)
-    return res.end(songs)
+    return res.send(songs)
   });
 },
-tarab:function(req, res) {
-  songs.find({},'tarab',function(err,songs) { 
-    if (err) {
-      console.log(err)
-    }
-    console.log(songs)
-    return res.end(songs)
-  });
-},
-romantic:function(req, res) {
-  songs.find({},'romantic', function(err,songs){ 
-    if (err) {
-      console.log(err)
-    }
-    console.log(songs)
-    return res.end(songs)
-  });
-},
-wedding:function(req, res) {
-  songs.find({},'wedding',function (err,songs) { 
-    if (err) {
-      console.log(err)
-    }
-    console.log(songs)
-    return res.end(songs)
-  });
-},
+// tarab:function(req, res) {
+//   Tarab.find({},function(err,songs) { 
+//     if (err) {
+//       console.log(err)
+//     }
+//     console.log(songs)
+//     return res.end(songs)
+//   });
+// },
+// romantic:function(req, res) {
+//   Romantic.find({}, function(err,songs){ 
+//     if (err) {
+//       console.log(err)
+//     }
+//     console.log(songs)
+//     return res.end(songs)
+//   });
+// },
+// wedding:function(req, res) {
+//   Wedding.find({},function (err,songs) { 
+//     if (err) {
+//       console.log(err)
+//     }
+//     console.log(songs)
+//     return res.end(songs)
+//   });
+// },
 random:function(req, res) {
-  songs.find({},'random',function(err,songs){ 
+  Random.find({},function(err,songs){ 
     if (err) {
-      console.log(err)
-    }
+res.send(err)  
+  }
     console.log(songs)
-    return res.end(songs)
+     res.send(songs)
   });
 },
 sendEmail:function(req, res)  {
@@ -171,7 +176,6 @@ sendEmail:function(req, res)  {
   },
   image:function(req,res){
     console.log(Object.keys(req.body)[0])
-   User.image=Object.keys(req.body)[0]
     console.log(User.image)
   },
   audio:function(req,res){

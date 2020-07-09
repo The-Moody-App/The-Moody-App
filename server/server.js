@@ -44,9 +44,9 @@ app.get("/logout",handlers.logout);
 //handling moods
 app.get("/sad",handlers.sad);
 app.get("/happy",handlers.happy);
-app.get("/tarab",handlers.tarab);
-app.get("/romantic",handlers.romantic);
-app.get("/wedding",handlers.wedding);
+// app.post("/tarab",handlers.tarab);
+// app.post("/romantic",handlers.romantic);
+// app.post("/wedding",handlers.wedding);
 app.get("/random",handlers.random);
 app.post("/sendEmail",handlers.sendEmail)
 app.post("/image",handlers.image)
