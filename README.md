@@ -6,6 +6,9 @@
 
 
 
+  - __Development Team Members__: Aws Alali ,Afnan shwawreh , sura aloqaily, Sara Al Nemer
+
+
 ## Table of Contents
 
 1. [Usage](#Usage)

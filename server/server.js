@@ -1,30 +1,31 @@
 const express = require("express");
-var cors = require('cors')
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose")
-
+const handlers=require('./handlers.js')
 const app = express();
+const router = express.Router();
 
-
-//make connection between server side and client side
+var cors = require('cors')
+const mongoose = require("mongoose")
+var session = require("express-session");
+var cookieParser = require("cookie-parser");
+const path = require('path');
+app.use(express.static(__dirname + '/public'));
+app.use(cookieParser("MoodyApp"));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-//routs path
-const users = require("./routes/user");
-const songs = require("./routes/main");
-const { Mongoose } = require("mongoose");
-
-// Connect to MongoDB
-const uri = "mongodb+srv://Sara-Agha-Alnimer:TMGUY54ZkKH7vne6@moody.96orc.mongodb.net/moody?retryWrites=true&w=majority"
-mongoose.connect(uri /* || "mongodb://localhost/moody "*/,
-    { useNewUrlParser: true,
-    useUnifiedTopology: true }
-  )
-  mongoose.connection.on('connected', () => 
-  console.log("MongoDB successfully connected"))
+app.use(
+  session({
+    name: "session-id",
+    secret: "SuraSession",
+  
+  })
+);
 
 
-// middleware
+
+
+
 app.use(
   bodyParser.urlencoded({
     extended: false
@@ -32,11 +33,23 @@ app.use(
 );
 app.use(bodyParser.json());
 
-//use routs for the site
-app.use("",users);
-app.use("",songs)
 
+app.post('/signup',handlers.signup)
 
+//login route
+app.post("/login",handlers.login)
+
+//logout route
+app.get("/logout",handlers.logout);
+//handling moods
+app.get("/sad",handlers.sad);
+app.get("/happy",handlers.happy);
+app.get("/tarab",handlers.tarab);
+app.get("/romantic",handlers.romantic);
+app.get("/wedding",handlers.wedding);
+app.get("/random",handlers.random);
+app.post("/sendEmail",handlers.sendEmail)
+app.post("/image",handlers.image)
 var port = 5000;
 
 app.listen(port, function () {
