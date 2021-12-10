@@ -34,7 +34,7 @@
     "express-fileupload": "^1.1.7-alpha.3",
     "express-session": "^1.17.1",
     "firebase": "^7.15.5",
-    "is-email": "^1.0.0",
+    "is-email": "^1.0.1",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
